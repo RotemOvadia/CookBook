@@ -23,6 +23,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   testSub$: Observable<string>;
   user: User;
   user$: Observable<User>;
+  recipeDescription = 'לערבב את כל החומרים';
   constructor(
     private fb: FormBuilder,
     private http: TransferHttp,

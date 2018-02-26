@@ -4,9 +4,9 @@
 <section>
   <ng-container *ngIf="testSub$ | async">Api test sub: {{ testSub$ | async }}</ng-container>
   <form [formGroup]="form" (ngSubmit)="submitState()" autocomplete="off">
-    <mat-form-field> 
+    <mat-form-field>
       <input matInput formControlName="name" [placeholder]="nameLabel">
-    </mat-form-field>   
+    </mat-form-field>
     <br>
     <button mat-raised-button color="primary">Update store</button>
     <button mat-raised-button color="accent" type="button" (click)="clearName()">Clear name</button>
@@ -14,3 +14,4 @@
   <br><br>
     <button id="my-logout-button" mat-raised-button color="accent" (click)="logout()">Logout</button>
 </section>
+<recipe-description [description]="recipeDescription"></recipe-description>
