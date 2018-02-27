@@ -7,16 +7,8 @@ import {Component, Input} from '@angular/core';
     .description-wrapper {
       border: 1px solid black;
       padding: 15px;
-      direction: rtl;
       margin-right: 300px;
       margin-top: 30px;
-    }
-    .title-wrapper {
-      color: palevioletred;
-      margin: 3px;
-    }
-    .content-wrapper {
-      color: blue;
     }
   `]
 })

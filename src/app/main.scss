@@ -1,2 +1,13 @@
 /* This file is for setting global styles  */
 @import 'variables';
+.title-wrapper {
+  color: palevioletred;
+  margin: 3px;
+}
+.content-wrapper {
+  color: blue;
+}
+
+.fix-hebrew {
+  direction: rtl;
+}
