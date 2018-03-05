@@ -1,4 +1,5 @@
 <div class="description-wrapper">
   <p class="title-wrapper">הוראות הכנה:</p>
-  <span class="content-wrapper">{{description}}</span>
+  <div class="content-wrapper" *ngIf="isEditMode===false">{{description}}</div>
+  <input class="content-wrapper" type="text" value={{description}} *ngIf="isEditMode===true">
 </div>

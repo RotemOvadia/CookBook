@@ -11,5 +11,6 @@ import {GroceryItem} from '../grocery-item';
 
 export class GroceryComponent {
   @Input() groceryItem: GroceryItem;
+  @Input() isEditMode: boolean;
   constructor () {}
 }

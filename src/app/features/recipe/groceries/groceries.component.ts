@@ -13,6 +13,7 @@ import {GroceryItem} from './grocery-item';
 
 export class GroceriesComponent {
   @Input() groceries: GroceryItem[];
+  @Input() isEditMode: boolean;
   constructor () {
   }
 }

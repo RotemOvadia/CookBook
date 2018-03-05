@@ -24,6 +24,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
   testSub$: Observable<string>;
   user: User;
   user$: Observable<User>;
+  recipeTitle = "פאדג' בראוניז";
+  isEditMode: boolean;
   groceriesList: GroceryItem[] = [];
   recipeDescription = 'לערבב את כל החומרים';
   constructor(
@@ -37,10 +39,12 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.user$ = this.store.select(state => state.user.user);
     this.user$.takeUntil(this.destroyed$)
       .subscribe(user => { this.user = user; });
-    this.groceriesList.push(new  GroceryItem('קמח', 2, 'כוסות'));
-    this.groceriesList.push(new  GroceryItem('סוכר', 2, 'כוסות'));
-    this.groceriesList.push(new  GroceryItem('ביצים', 2, ''));
+    this.isEditMode = false;
     this.groceriesList.push(new  GroceryItem('שוקולד', 200, 'גרם'));
+    this.groceriesList.push(new  GroceryItem('חמאה', 200, 'גרם'));
+    this.groceriesList.push(new  GroceryItem('ביצים', 2, ''));
+    this.groceriesList.push(new  GroceryItem('סוכר', 2, 'כוסות'));
+    this.groceriesList.push(new  GroceryItem('קמח', 2, 'כוסות'));
     this.groceriesList.push(new  GroceryItem('מלח', 1, 'קורט'));
 
   }

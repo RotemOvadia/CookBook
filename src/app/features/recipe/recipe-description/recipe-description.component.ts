@@ -13,5 +13,6 @@ import {Component, Input} from '@angular/core';
 
 export class RecipeDescriptionComponent {
  @Input() description: string;
+ @Input() isEditMode: boolean;
   constructor () {}
 }

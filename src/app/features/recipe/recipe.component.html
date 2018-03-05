@@ -1,4 +1,8 @@
 <div class="recipe-wrapper fix-hebrew">
-  <groceries-list [groceries]="groceriesList"></groceries-list>
-  <recipe-description [description]="description"></recipe-description>
+  <h2>{{title}}</h2>
+  <groceries-list [groceries]="groceriesList" [isEditMode]="isEditMode"></groceries-list>
+  <recipe-description [description]="description" [isEditMode]="isEditMode"></recipe-description>
+  <button (click)="EditModeClick()" *ngIf="isEditMode===false">Edit</button>
+  <button (click)="SaveModeClick()" *ngIf="isEditMode===true">Save</button>
+
 </div>
