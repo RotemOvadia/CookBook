@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { User } from '../user/user.model';
 
 import * as UserActions from '../user/user.actions';
-import {GroceryItem} from './groceries/grocery-item';
+import {GroceryItem} from './recipe/groceries/grocery-item';
 
 @Component({
   selector: 'my-dashboard',

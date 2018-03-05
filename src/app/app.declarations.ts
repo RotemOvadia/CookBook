@@ -1,13 +1,14 @@
 import { DashboardComponent } from './features/dashboard.component';
-import { RecipeDescriptionComponent} from './features/recipe-description/recipe-description.component';
 import { NotFound404Component } from './not-found404.component';
-import {GroceriesComponent} from './features/groceries/groceries.component';
-import {GroceryItem} from './features/groceries/grocery-item';
-import {GroceryComponent} from './features/groceries/grocery/grocery.component';
+import {GroceryComponent} from './features/recipe/groceries/grocery/grocery.component';
+import {GroceriesComponent} from './features/recipe/groceries/groceries.component';
+import { RecipeDescriptionComponent} from './features/recipe/recipe-description/recipe-description.component';
+import {RecipeComponent} from './features/recipe/recipe.component';
 
 export const APP_DECLARATIONS = [
   DashboardComponent,
   NotFound404Component,
+  RecipeComponent,
   RecipeDescriptionComponent,
   GroceriesComponent,
   GroceryComponent

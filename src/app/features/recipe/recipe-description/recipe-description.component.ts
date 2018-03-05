@@ -5,10 +5,8 @@ import {Component, Input} from '@angular/core';
   templateUrl: './recipe-description.component.html',
   styles: [`
     .description-wrapper {
-      border: 1px solid black;
       padding: 15px;
-      margin-right: 300px;
-      margin-top: 30px;
+      margin-top: 10px;
     }
   `]
 })

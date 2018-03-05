@@ -5,7 +5,9 @@ import {GroceryItem} from './grocery-item';
   selector: 'groceries-list',
   templateUrl: './groceries.component.html',
   styles: [`
-
+    .groceries-wrapper {
+      padding: 15px;
+    }
   `]
 })
 
