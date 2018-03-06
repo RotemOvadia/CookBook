@@ -1,9 +1,15 @@
 import { DashboardComponent } from './features/dashboard.component';
-import { RecipeDescriptionComponent} from './features/recipe-description/recipe-description.component';
 import { NotFound404Component } from './not-found404.component';
+import {GroceryComponent} from './features/recipe/groceries/grocery/grocery.component';
+import {GroceriesComponent} from './features/recipe/groceries/groceries.component';
+import { RecipeDescriptionComponent} from './features/recipe/recipe-description/recipe-description.component';
+import {RecipeComponent} from './features/recipe/recipe.component';
 
 export const APP_DECLARATIONS = [
   DashboardComponent,
   NotFound404Component,
-  RecipeDescriptionComponent
+  RecipeComponent,
+  RecipeDescriptionComponent,
+  GroceriesComponent,
+  GroceryComponent
 ];

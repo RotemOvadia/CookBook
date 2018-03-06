@@ -5,23 +5,14 @@ import {Component, Input} from '@angular/core';
   templateUrl: './recipe-description.component.html',
   styles: [`
     .description-wrapper {
-      border: 1px solid black;
       padding: 15px;
-      direction: rtl;
-      margin-right: 300px;
-      margin-top: 30px;
-    }
-    .title-wrapper {
-      color: palevioletred;
-      margin: 3px;
-    }
-    .content-wrapper {
-      color: blue;
+      margin-top: 10px;
     }
   `]
 })
 
 export class RecipeDescriptionComponent {
  @Input() description: string;
+ @Input() isEditMode: boolean;
   constructor () {}
 }

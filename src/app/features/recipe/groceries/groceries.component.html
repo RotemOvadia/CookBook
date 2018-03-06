@@ -1,0 +1,4 @@
+<div class="groceries-wrapper">
+  <p class="title-wrapper">מצרכים:</p>
+  <grocery-item class="content-wrapper" *ngFor="let grocery of groceries" [groceryItem]="grocery" [isEditMode]="isEditMode"></grocery-item>
+</div>
