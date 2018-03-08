@@ -2,7 +2,7 @@
   <span *ngIf="isEditMode===false">{{groceryItem.quantity}}</span>
   <span *ngIf="isEditMode===false">{{groceryItem.units}}</span>
   <span *ngIf="isEditMode===false">{{groceryItem.name}}</span>
-  <input value={{groceryItem.quantity}} *ngIf="isEditMode===true">
-  <input value={{groceryItem.units}} *ngIf="isEditMode===true">
-  <input value={{groceryItem.name}} *ngIf="isEditMode===true">
+  <input [(ngModel)]="groceryItem.quantity" *ngIf="isEditMode===true">
+  <input [(ngModel)]="groceryItem.units" *ngIf="isEditMode===true">
+  <input [(ngModel)]="groceryItem.name" *ngIf="isEditMode===true">
 </div>
