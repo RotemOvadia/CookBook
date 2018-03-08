@@ -8,6 +8,11 @@ import {Component, Input} from '@angular/core';
       padding: 15px;
       margin-top: 10px;
     }
+    .description-content {
+      word-wrap: break-word;
+      word-break: break-all;
+      display: inline-block;
+    }
   `]
 })
 

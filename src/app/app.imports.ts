@@ -15,6 +15,8 @@ import { StoreDevToolsModule } from './features/store-devtools.module';
 import { UserEffects } from './user/user.effects';
 import { userReducer } from './user/user.reducer';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { FormsModule } from '@angular/forms';
+
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&
@@ -39,5 +41,6 @@ export const APP_IMPORTS = [
   StoreRouterConnectingModule,
   STORE_DEV_TOOLS_IMPORTS,
   StoreDevToolsModule,
-  TransferHttpModule
+  TransferHttpModule,
+  FormsModule
 ];
