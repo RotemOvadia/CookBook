@@ -5,6 +5,7 @@ import {GroceriesComponent} from './features/recipe/groceries/groceries.componen
 import { RecipeDescriptionComponent} from './features/recipe/recipe-description/recipe-description.component';
 import {RecipeComponent} from './features/recipe/recipe.component';
 import {RecipePreviewComponent} from './features/recipe/recipe.preview.component';
+import {NavbarComponent} from './nav/navbar.component';
 
 export const APP_DECLARATIONS = [
   DashboardComponent,
@@ -13,5 +14,6 @@ export const APP_DECLARATIONS = [
   RecipeDescriptionComponent,
   GroceriesComponent,
   GroceryComponent,
-  RecipePreviewComponent
+  RecipePreviewComponent,
+  NavbarComponent
 ];
