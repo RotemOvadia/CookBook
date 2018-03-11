@@ -4,6 +4,7 @@ import { TransferHttp } from '../../modules/transfer-http/transfer-http';
 
 
 import {GroceryItem} from './recipe/groceries/grocery-item';
+import {RecipeItem} from './recipe/recipe-item';
 
 @Component({
   selector: 'my-dashboard',
@@ -13,10 +14,10 @@ import {GroceryItem} from './recipe/groceries/grocery-item';
 
 export class DashboardComponent {
   form: FormGroup;
-  recipeTitle = "פאדג' בראוניז";
   isEditMode: boolean;
   groceriesList: GroceryItem[] = [];
-  recipeDescription = 'לערבב את כל החומרים';
+  recipe: RecipeItem;
+  recipe2: RecipeItem;
   constructor(
     private fb: FormBuilder,
     private http: TransferHttp
@@ -32,6 +33,9 @@ export class DashboardComponent {
     this.groceriesList.push(new  GroceryItem('סוכר', 2, 'כוסות'));
     this.groceriesList.push(new  GroceryItem('קמח', 2, 'כוסות'));
     this.groceriesList.push(new  GroceryItem('מלח', 1, 'קורט'));
+
+    this.recipe = new RecipeItem("פאדג' בראוניז", this.groceriesList, 'לערבב את כל החומרים', '../../assets/Fudge-Brownies2.jpg');
+    this.recipe2 = new RecipeItem('מאפינס בננה', this.groceriesList, 'לערבב את כל החומרים', '../../assets/banana-muffins.jpg');
 
   }
 }

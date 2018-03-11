@@ -1,5 +1,5 @@
 <div class="description-wrapper">
-  <span class="title-wrapper">הוראות הכנה:</span>
+  <div class="title-wrapper">הוראות הכנה:</div>
   <div class="content-wrapper description-content" *ngIf="isEditMode===false">{{description}}</div>
   <textarea class="content-wrapper" type="text" [(ngModel)]="description" *ngIf="isEditMode===true"></textarea>
 </div>

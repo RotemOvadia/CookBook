@@ -4,10 +4,10 @@ import {publicDecrypt} from 'crypto';
 import {RecipeItem} from './recipe-item';
 
 @Component({
-  selector: 'recipe-unit',
-  templateUrl: './recipe.component.html',
+  selector: 'recipe-preview',
+  templateUrl: './recipe.preview.component.html',
   styles: [`
-    .recipe-wrapper {
+    .recipe-preview-wrapper {
       padding: 15px;
       margin-right: 30px;
       margin-top: 10px;
@@ -16,25 +16,22 @@ import {RecipeItem} from './recipe-item';
       display: inline-block;
     }
 
-    .recipe-image-wrapper {
+    .recipe-preview-image-wrapper {
       display: inline-block;
+    }
+    .recipe-preview-image {
+      height: 25em;
+      width: 25em;
     }
   `]
 })
 
-export class RecipeComponent {
+export class RecipePreviewComponent {
   @Input() myRecipe: RecipeItem;
-  isEditMode: boolean;
   constructor () {
-    this.isEditMode = false;
   }
 
-  public EditModeClick() {
-    this.isEditMode = true;
-  }
-
-  public SaveModeClick() {
-    this.isEditMode = false;
+  public ShowRecipe() {
   }
 }
 
