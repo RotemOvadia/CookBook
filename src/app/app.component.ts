@@ -4,6 +4,7 @@ import { TransferState } from '../modules/transfer-state/transfer-state';
 
 import { views } from './app-nav-views';
 import { MOBILE } from './services/constants';
+import { StoreModule} from '@ngrx/store';
 
 @Component({
   selector: 'my-app',

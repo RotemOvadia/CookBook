@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+import {StoreModule} from '@ngrx/store';
 
 import {
   BrowserTransferStateModule
@@ -22,6 +23,8 @@ import { APP_ENTRY_COMPONENTS } from './app.entry-components';
 import { APP_IMPORTS } from './app.imports';
 
 import { routes } from './app.routing';
+
+import {reducers} from './store';
 
 import { AppComponent } from './app.component';
 
@@ -40,6 +43,7 @@ import { AppComponent } from './app.component';
       useHash: false,
       // preloadingStrategy: PreloadAllModules
     }),
+    StoreModule.forRoot(reducers)
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],
