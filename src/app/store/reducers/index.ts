@@ -10,9 +10,12 @@ export const reducers: ActionReducerMap<ProductState> = {
   recipes: fromRecipes.reducer
 }
 
-export const getProductState = createFeatureSelector<ProductState>('product');
+export const getProductState = createFeatureSelector<ProductState>('products');
 
 export const getRecipesState = createSelector(getProductState, (state: ProductState) => state.recipes);
+// export const getRecipesState = createSelector(getProductState, (state: ProductState) => {
+//   debugger;
+//   state.recipes});
 
 export const getAllRecipes = createSelector(getRecipesState, fromRecipes.getRecipes);
 export const getRecipesLoaded = createSelector(getRecipesState, fromRecipes.getRecipesLoaded);
