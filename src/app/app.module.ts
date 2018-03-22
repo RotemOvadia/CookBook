@@ -24,9 +24,8 @@ import { APP_IMPORTS } from './app.imports';
 
 import { routes } from './app.routing';
 
-import {reducers} from './store';
-
 import { AppComponent } from './app.component';
+import {FeaturesModule} from './features/features.module';
 
 @NgModule({
   declarations: [
@@ -39,11 +38,12 @@ import { AppComponent } from './app.component';
     DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
     HttpModule,
     APP_IMPORTS,
+    FeaturesModule,
     RouterModule.forRoot(routes, {
       useHash: false,
       // preloadingStrategy: PreloadAllModules
     }),
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot({})
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],

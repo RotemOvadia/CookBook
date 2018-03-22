@@ -40,50 +40,50 @@ export class DashboardComponent implements OnInit {
     this.groceriesList.push(new  GroceryItem('מלח', 1, 'קורט'));
 
     // this.recipe = new RecipeItem('1', "פאדג' בראוניז", this.groceriesList, 'לערבב את כל החומרים', '../../assets/Fudge-Brownies2.jpg');
-    this.recipe2 = new RecipeItem('2', 'מאפינס בננה', this.groceriesList, 'לערבב את כל החומרים', '../../assets/banana-muffins.jpg');
-    this.recipe = {
-      "id": "1",
-      "name": "פאדג' בראוניז",
-      "groceriesList": [
-        {
-          "name": "שוקולד",
-          "quantity": 200,
-          "units": "גרם"
-        },
-        {
-          "name": "חמאה",
-          "quantity": 200,
-          "units": "גרם"
-        },
-        {
-          "name": "ביצים",
-          "quantity": 4,
-          "units": ""
-        },
-        {
-          "name": "סוכר",
-          "quantity": 2,
-          "units": "כוסות"
-        },
-        {
-          "name": "קמח",
-          "quantity": 2,
-          "units": "כוסות"
-        },
-        {
-          "name": "מלח",
-          "quantity": 1,
-          "units": "קורט"
-        }
-      ],
-      "recipeDescription": "לערבב את כל החומרים",
-      "image": "../../assets/Fudge-Brownies2.jpg"
-    };
+    // this.recipe2 = new RecipeItem('2', 'מאפינס בננה', this.groceriesList, 'לערבב את כל החומרים', '../../assets/banana-muffins.jpg');
+    // this.recipe = {
+    //   "id": "1",
+    //   "name": "פאדג' בראוניז",
+    //   "groceriesList": [
+    //     {
+    //       "name": "שוקולד",
+    //       "quantity": 200,
+    //       "units": "גרם"
+    //     },
+    //     {
+    //       "name": "חמאה",
+    //       "quantity": 200,
+    //       "units": "גרם"
+    //     },
+    //     {
+    //       "name": "ביצים",
+    //       "quantity": 4,
+    //       "units": ""
+    //     },
+    //     {
+    //       "name": "סוכר",
+    //       "quantity": 2,
+    //       "units": "כוסות"
+    //     },
+    //     {
+    //       "name": "קמח",
+    //       "quantity": 2,
+    //       "units": "כוסות"
+    //     },
+    //     {
+    //       "name": "מלח",
+    //       "quantity": 1,
+    //       "units": "קורט"
+    //     }
+    //   ],
+    //   "recipeDescription": "לערבב את כל החומרים",
+    //   "image": "../../assets/Fudge-Brownies2.jpg"
+    // };
 
   }
 
   ngOnInit() {
-    this.myStore.subscribe(myState => {
+    this.myStore.select<any>(fromStore.getAllRecipes).subscribe(myState => {
       console.log(myState);
     });
   }
