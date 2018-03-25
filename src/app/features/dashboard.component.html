@@ -1,7 +1,8 @@
 <header>
   <h3 class="fix-hebrew"> אתר המתכונים שלי!</h3>
 </header>
-<recipe-preview [myRecipe]="recipe"></recipe-preview>
-<recipe-preview [myRecipe]="recipe2"></recipe-preview>
+<recipe-preview *ngFor="let recipe of (recipes$ | async)" [myRecipe]="recipe"></recipe-preview>
+<!--<recipe-preview [myRecipe]="recipe"></recipe-preview>-->
+<!--<recipe-preview [myRecipe]="recipe2"></recipe-preview>-->
 
 

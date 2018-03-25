@@ -51,6 +51,44 @@ export const initialState = {
     ],
     "recipeDescription": "לערבב את כל החומרים",
     "image": "../../assets/Fudge-Brownies2.jpg"
+  },
+  {
+    "id": "1",
+    "name": "מאפינס בננה",
+    "groceriesList": [
+      {
+        "name": "בננות",
+        "quantity": 3,
+        "units": ""
+      },
+      {
+        "name": "חמאה",
+        "quantity": 200,
+        "units": "גרם"
+      },
+      {
+        "name": "ביצים",
+        "quantity": 4,
+        "units": ""
+      },
+      {
+        "name": "סוכר",
+        "quantity": 2,
+        "units": "כוסות"
+      },
+      {
+        "name": "קמח",
+        "quantity": 2,
+        "units": "כוסות"
+      },
+      {
+        "name": "מלח",
+        "quantity": 1,
+        "units": "קורט"
+      }
+    ],
+    "recipeDescription": "לערבב את כל החומרים",
+    "image": "../../assets/banana-muffins.jpg"
   }],
   loaded: false,
   loading: false
