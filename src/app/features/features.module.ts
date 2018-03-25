@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 // import { APP_DECLARATIONS } from './app.declarations';
 // import { APP_ENTRY_COMPONENTS } from './app.entry-components';
@@ -13,15 +14,17 @@ import {StoreModule} from '@ngrx/store';
 
 
 // import { AppComponent } from './app.component';
-import {reducers} from '../store/reducers';
 import {RecipeDescriptionComponent} from './recipe/recipe-description/recipe-description.component';
 import {RecipeComponent} from './recipe/recipe.component';
 import {DashboardComponent} from './dashboard.component';
 import {RecipePreviewComponent} from './recipe/recipe.preview.component';
 import {GroceriesComponent} from './recipe/groceries/groceries.component';
 import {GroceryComponent} from './recipe/groceries/grocery/grocery.component';
-import {FormsModule} from '@angular/forms';
 import {APP_IMPORTS} from '../app.imports';
+import {RecipesService} from '../services/recipes.service';
+
+import {reducers, effects} from '../store';
+
 
 @NgModule({
    declarations: [
@@ -31,7 +34,7 @@ import {APP_IMPORTS} from '../app.imports';
     GroceriesComponent,
     GroceryComponent,
     RecipePreviewComponent
-  ],
+   ],
   // entryComponents: [APP_ENTRY_COMPONENTS],
   imports: [
     CommonModule,
@@ -40,11 +43,12 @@ import {APP_IMPORTS} from '../app.imports';
     // HttpModule,
     // APP_IMPORTS,
     // RouterModule.forChild(  ),
-    StoreModule.forFeature('products', reducers)
+    StoreModule.forFeature('products', reducers),
+    EffectsModule.forFeature(effects)
   ],
   // bootstrap: [AppComponent],
   // exports: [AppComponent],
-  providers: []
+  providers: [RecipesService]
 })
 
 export class FeaturesModule {

@@ -26,6 +26,8 @@ import { routes } from './app.routing';
 
 import { AppComponent } from './app.component';
 import {FeaturesModule} from './features/features.module';
+import {HttpClientModule} from '@angular/common/http';
+import {EffectsModule} from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,16 @@ import {FeaturesModule} from './features/features.module';
     CommonModule,
     DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
     HttpModule,
+    HttpClientModule,
     APP_IMPORTS,
     FeaturesModule,
     RouterModule.forRoot(routes, {
       useHash: false,
       // preloadingStrategy: PreloadAllModules
     }),
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],

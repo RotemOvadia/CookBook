@@ -7,6 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import * as fromStore from '../store';
 
 import {RecipeItem} from './recipe/recipe-item';
+import {RecipesService} from '../services/recipes.service';
 
 @Component({
   selector: 'my-dashboard',
@@ -16,22 +17,26 @@ import {RecipeItem} from './recipe/recipe-item';
 
 export class DashboardComponent implements OnInit {
   form: FormGroup;
-  isEditMode: boolean;
+  // isEditMode: boolean;
   recipes$: Observable<RecipeItem[]>;
+  recipes: RecipeItem[];
   constructor(
     private myStore: Store<fromStore.ProductState>,
     private fb: FormBuilder,
-    private http: TransferHttp
+    private http: TransferHttp,
+    private recipesService: RecipesService
   ) {
     this.form = fb.group({
       name: ''
     });
 
-    this.isEditMode = false;
+    // this.isEditMode = false;
   }
 
   ngOnInit() {
     this.recipes$ = this.myStore.select(fromStore.getAllRecipes);
+    // this.recipes$ = this.recipesService.getRecipes();
+    this.myStore.dispatch(new fromStore.LoadRecipe());
   }
 
 }
