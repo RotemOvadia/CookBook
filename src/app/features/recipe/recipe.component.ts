@@ -29,15 +29,21 @@ import {ActivatedRoute} from '@angular/router';
 export class RecipeComponent implements OnInit {
   @Input() myRecipe$: Observable<RecipeItem>;
   isEditMode: boolean;
-  constructor (private recipeService: RecipesService) {
+  constructor (private recipeService: RecipesService,
+               private activatedRoute: ActivatedRoute
+  ) {
     this.isEditMode = false;
   }
-  // constructor (_route: ActivatedRoute) {
-  //   this.isEditMode = false;
-  // }
 
   ngOnInit() {
-    this.myRecipe$ = this.recipeService.getRecipe(1);
+    this.activatedRoute.queryParams.subscribe(params => {
+      let id = params['id'];
+      console.log(id); // Print the parameter to the console.
+
+      let idSnap = +this.activatedRoute.snapshot.paramMap.get('id');
+
+      this.myRecipe$ = this.recipeService.getRecipe(idSnap);
+    });
   }
 
   public EditModeClick() {

@@ -17,12 +17,22 @@ export class RecipesService {
         .pipe(catchError((error: any) => Observable.throw(error.json())));
     }
 
-    getRecipe(id: number): Observable<RecipeItem> {
-      return this.http
-        .get<RecipeItem[]>(`../../db.json/`)
-        .filter( recipe => recipe.id === id)
-        .pipe(catchError((error: any) => Observable.throw(error.json())));
-    }
+    // getRecipe(id: number): Observable<RecipeItem> {
+    //   return this.http
+    //     .get<RecipeItem[]>(`../../db.json/`)
+    //     .map(recipes => recipes[0])
+    //     .filter( recipe => recipe.id === id)
+    //     .pipe(catchError((error: any) => Observable.throw(error.json())));
+    // }
+
+  getRecipe(id: number): Observable<RecipeItem> {
+    return this.http
+      .get<RecipeItem[]>(this._productUrl)
+      .map((recipes) => recipes
+        .filter( recipe =>  recipe.id == id))
+      .map((fiteredRecipes) => fiteredRecipes[0])
+      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  }
 
     createRecipe(payload: RecipeItem): Observable<RecipeItem> {
       return this.http

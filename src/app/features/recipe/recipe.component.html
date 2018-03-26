@@ -7,6 +7,7 @@
     <button (click)="SaveModeClick()" *ngIf="isEditMode===true">Save</button>
   </div>
   <div class="recipe-image-wrapper">
-    <!--<img src={{myRecipe.image}}>-->
+    <img [src]="(myRecipe$ | async).image">
+    <!--<img ng-src="myRecipe$ | async).image">-->
   </div>
 </div>

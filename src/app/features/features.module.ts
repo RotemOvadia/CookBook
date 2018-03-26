@@ -11,9 +11,6 @@ import {EffectsModule} from '@ngrx/effects';
 //
 // import { routes } from './app.routing';
 
-
-
-// import { AppComponent } from './app.component';
 import {RecipeDescriptionComponent} from './recipe/recipe-description/recipe-description.component';
 import {RecipeComponent} from './recipe/recipe.component';
 import {DashboardComponent} from './dashboard.component';
@@ -43,7 +40,11 @@ import {routes} from '../app.routing';
     // DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
     // HttpModule,
     // APP_IMPORTS,
-     RouterModule.forChild( routes ),
+    RouterModule.forChild([
+      {path: 'recipes', component: DashboardComponent},
+      {path: 'recipes/:id', component: RecipeComponent}
+      ]
+    ),
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)
   ],
