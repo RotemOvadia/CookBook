@@ -1,12 +1,12 @@
 <div class="recipe-wrapper fix-hebrew">
   <div>
-    <h2>{{myRecipe.name}}</h2>
-    <groceries-list [groceries]="myRecipe.groceriesList" [isEditMode]="isEditMode"></groceries-list>
-    <recipe-description [description]="myRecipe.recipeDescription" [isEditMode]="isEditMode"></recipe-description>
+    <h2>{{(myRecipe$ | async).name}}</h2>
+    <groceries-list [groceries]="(myRecipe$ | async).groceriesList" [isEditMode]="isEditMode"></groceries-list>
+    <recipe-description [description]="(myRecipe$ | async).recipeDescription" [isEditMode]="isEditMode"></recipe-description>
     <button (click)="EditModeClick()" *ngIf="isEditMode===false">Edit</button>
     <button (click)="SaveModeClick()" *ngIf="isEditMode===true">Save</button>
   </div>
   <div class="recipe-image-wrapper">
-    <img src={{myRecipe.image}}>
+    <!--<img src={{myRecipe.image}}>-->
   </div>
 </div>

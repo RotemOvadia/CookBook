@@ -24,6 +24,7 @@ import {APP_IMPORTS} from '../app.imports';
 import {RecipesService} from '../services/recipes.service';
 
 import {reducers, effects} from '../store';
+import {routes} from '../app.routing';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import {reducers, effects} from '../store';
     // DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
     // HttpModule,
     // APP_IMPORTS,
-    // RouterModule.forChild(  ),
+     RouterModule.forChild( routes ),
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)
   ],

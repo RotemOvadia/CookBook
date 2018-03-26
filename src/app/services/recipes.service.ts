@@ -6,17 +6,27 @@ import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class RecipesService {
+  private _productUrl = '../../db.json';
+
+
   constructor(private http: HttpClient) {}
 
     getRecipes(): Observable<RecipeItem[]> {
       return this.http
-        .get<RecipeItem[]>("../../db.json")
+        .get<RecipeItem[]>(this._productUrl)
+        .pipe(catchError((error: any) => Observable.throw(error.json())));
+    }
+
+    getRecipe(id: number): Observable<RecipeItem> {
+      return this.http
+        .get<RecipeItem[]>(`../../db.json/`)
+        .filter( recipe => recipe.id === id)
         .pipe(catchError((error: any) => Observable.throw(error.json())));
     }
 
     createRecipe(payload: RecipeItem): Observable<RecipeItem> {
       return this.http
-        .post<RecipeItem>("../../db.json", payload)
+        .post<RecipeItem>(this._productUrl, payload)
         .pipe(catchError((error: any) => Observable.throw(error.json())));
     }
 

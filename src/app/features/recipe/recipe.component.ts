@@ -1,7 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
 import {GroceryItem} from './groceries/grocery-item';
 import {publicDecrypt} from 'crypto';
 import {RecipeItem} from './recipe-item';
+import {RecipesService} from '../../services';
+import {Observable} from 'rxjs/Observable';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'recipe-unit',
@@ -22,11 +26,18 @@ import {RecipeItem} from './recipe-item';
   `]
 })
 
-export class RecipeComponent {
-  @Input() myRecipe: RecipeItem;
+export class RecipeComponent implements OnInit {
+  @Input() myRecipe$: Observable<RecipeItem>;
   isEditMode: boolean;
-  constructor () {
+  constructor (private recipeService: RecipesService) {
     this.isEditMode = false;
+  }
+  // constructor (_route: ActivatedRoute) {
+  //   this.isEditMode = false;
+  // }
+
+  ngOnInit() {
+    this.myRecipe$ = this.recipeService.getRecipe(1);
   }
 
   public EditModeClick() {

@@ -7,14 +7,14 @@ import {
 
 
 export interface RecipeState {
-  data: RecipeItem[];
+  entities: { [id: number]: RecipeItem};
   loaded: boolean;
   loading: boolean;
 }
 
 
-export const initialState = {
-  data: [],
+export const initialState: RecipeState = {
+  entities: {},
   loaded: false,
   loading: false
 };
@@ -32,12 +32,24 @@ export function reducer(
       };
     }
     case fromRecipes.LOAD_RECIPE_SUCCESS: {
-      const data = action.payload;
+      const recipes = action.payload;
+
+      const entities = recipes.reduce(
+        (entity: {[id: number]: RecipeItem}, recipe: RecipeItem) => {
+          return {
+            ...entity,
+            [recipe.id]: recipe
+          };
+        },
+        {
+        ...state.entities
+        }
+      );
       return {
         ...state,
         loading: false,
         loaded: true,
-        data,
+        entities,
       };
     }
 
@@ -52,7 +64,7 @@ export function reducer(
   return state;
 }
 
+export const getRecipesEntities = (state: RecipeState) => state.entities;
 export const getRecipesLoading = (state: RecipeState) => state.loading;
 export const getRecipesLoaded = (state: RecipeState) => state.loaded;
-export const getRecipes = (state: RecipeState) => state.data;
 

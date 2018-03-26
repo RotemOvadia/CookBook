@@ -17,6 +17,14 @@ export const getRecipesState = createSelector(getProductState, (state: ProductSt
 //   debugger;
 //   state.recipes});
 
-export const getAllRecipes = createSelector(getRecipesState, fromRecipes.getRecipes);
+export const getRecipesEntities = createSelector(getRecipesState, fromRecipes.getRecipesEntities);
+
+export const getAllRecipes = createSelector(
+  getRecipesEntities,
+  (entities) => {
+    return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
+  }
+)
+
 export const getRecipesLoaded = createSelector(getRecipesState, fromRecipes.getRecipesLoaded);
 export const getRecipesLoading = createSelector(getRecipesState, fromRecipes.getRecipesLoading);

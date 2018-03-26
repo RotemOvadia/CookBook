@@ -1,5 +1,5 @@
 <div class="recipe-preview-wrapper fix-hebrew">
-  <a href="recipe.component.html">
+  <a [routerLink]="['/recipes', myRecipe.id]">
     <div>
       <h3>{{myRecipe.name}}</h3>
     </div>
